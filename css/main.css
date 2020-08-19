@@ -612,11 +612,6 @@ ul li .active:hover {
   padding: 150px 0;
 }
 
-.about div {
-  font-family: Montserrat;
-  text-shadow: 0 2px #645258;
-}
-
 .about div p {
   font-size: 1.5em;
 }
