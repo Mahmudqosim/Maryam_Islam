@@ -1,0 +1,730 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: poppins;
+  background: #000;
+  color: white;
+}
+
+@font-face {
+  font-family: arslan;
+  src: url(../fonts/arslan.ttf);
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(../fonts/Poppins-Bold.ttf);
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.row:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-m-1 {
+    width: 8.33%;
+  }
+  .col-m-2 {
+    width: 16.66%;
+  }
+  .col-m-3 {
+    width: 25%;
+  }
+  .col-m-4 {
+    width: 33.33%;
+  }
+  .col-m-5 {
+    width: 41.66%;
+  }
+  .col-m-6 {
+    width: 50%;
+  }
+  .col-m-7 {
+    width: 58.33%;
+  }
+  .col-m-8 {
+    width: 66.66%;
+  }
+  .col-m-9 {
+    width: 75%;
+  }
+  .col-m-10 {
+    width: 83.33%;
+  }
+  .col-m-11 {
+    width: 91.66%;
+  }
+  .col-m-12 {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {
+    width: 8.33%;
+  }
+  .col-2 {
+    width: 16.66%;
+  }
+  .col-3 {
+    width: 25%;
+  }
+  .col-4 {
+    width: 33.33%;
+  }
+  .col-5 {
+    width: 41.66%;
+  }
+  .col-6 {
+    width: 50%;
+  }
+  .col-7 {
+    width: 58.33%;
+  }
+  .col-8 {
+    width: 66.66%;
+  }
+  .col-9 {
+    width: 75%;
+  }
+  .col-10 {
+    width: 83.33%;
+  }
+  .col-11 {
+    width: 91.66%;
+  }
+  .col-12 {
+    width: 100%;
+  }
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav a {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  color: #fff;
+  font-family: arslan;
+  text-decoration: none;
+  font-size: 2.5em;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.nav a:hover {
+  color: #ff1f6b;
+}
+
+.nav span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  display: block;
+  -webkit-transform-origin: bottom-left;
+          transform-origin: bottom-left;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+.nav span:nth-child(1) {
+  background: #219dff;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  -webkit-transition-delay: 0.6s;
+          transition-delay: 0.6s;
+}
+
+.nav span:nth-child(2) {
+  background: #ff1f6b;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  -webkit-transition-delay: 0.4s;
+          transition-delay: 0.4s;
+}
+
+.nav span:nth-child(3) {
+  background: #fff;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+
+.nav.active span {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav.active .toggle {
+  background: url(../images/close.png);
+  background-repeat: no-repeat;
+  background-position: 5px;
+}
+
+.nav.active ul {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition-delay: 0.7s;
+          transition-delay: 0.7s;
+}
+
+.toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: url(../images/toggle.png);
+  background-repeat: no-repeat;
+  background-position: 5px;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  z-index: 1000;
+}
+
+ul {
+  position: absolute;
+  z-index: 100;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition-delay: 0;
+          transition-delay: 0;
+}
+
+ul li {
+  list-style-type: none;
+  margin: 10px 0;
+}
+
+ul li .active {
+  color: #ff1f6b;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+ul li .active:hover {
+  text-decoration: underline;
+  color: #111;
+}
+
+.row.active {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#main {
+  margin-top: 10%;
+  text-align: center;
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+#main h1 {
+  font-size: 7em;
+  color: #fff;
+  font-family: Poppins;
+}
+
+#main h1 span {
+  color: #ff1f6b;
+}
+
+#main.active {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+#main a {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  border: 2px solid #fff;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+#main a::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% - 12px);
+  background: #000;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  -webkit-transition-delay: 0.5;
+          transition-delay: 0.5;
+}
+
+#main a:hover::before {
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+}
+
+#main a::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: -2px;
+  height: calc(100% + 4px);
+  width: calc(100% - 12px);
+  background: #000;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+#main a:hover::after {
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+}
+
+#main a span {
+  position: relative;
+  z-index: 3;
+}
+
+@-webkit-keyframes animate {
+  0% {
+    color: #ff1f6b;
+  }
+  10% {
+    color: #ca114e;
+  }
+  20% {
+    color: #1b18e4;
+  }
+  30% {
+    color: #f886ac;
+  }
+  40% {
+    color: #1f88ff;
+  }
+  50% {
+    color: #8b2547;
+  }
+  60% {
+    color: #9eff1f;
+  }
+  70% {
+    color: #ff1f6b;
+  }
+  80% {
+    color: #ff689b;
+  }
+  90% {
+    color: #1f80ff;
+  }
+  100% {
+    color: #1fffe1;
+  }
+}
+
+@keyframes animate {
+  0% {
+    color: #ff1f6b;
+  }
+  10% {
+    color: #ca114e;
+  }
+  20% {
+    color: #1b18e4;
+  }
+  30% {
+    color: #f886ac;
+  }
+  40% {
+    color: #1f88ff;
+  }
+  50% {
+    color: #8b2547;
+  }
+  60% {
+    color: #9eff1f;
+  }
+  70% {
+    color: #ff1f6b;
+  }
+  80% {
+    color: #ff689b;
+  }
+  90% {
+    color: #1f80ff;
+  }
+  100% {
+    color: #1fffe1;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  #main {
+    margin-top: 15%;
+  }
+  #main h1 {
+    font-size: 4.5em;
+  }
+}
+
+@media only screen and (max-width: 561px) {
+  #main {
+    margin-top: 15%;
+  }
+  #main h1 {
+    font-size: 3.5em;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  #main {
+    margin-top: 15%;
+  }
+  #main h1 {
+    font-size: 2.5em;
+  }
+}
+
+#container {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+#container.active {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+#container .box {
+  height: 400px;
+  background: #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+#container .box:hover .content h2 {
+  top: -20px;
+}
+
+#container .box .content {
+  position: relative;
+  padding: 20px;
+}
+
+#container .box .content h2 {
+  position: absolute;
+  top: -60px;
+  right: 20px;
+  margin: 0;
+  padding: 0;
+  font-size: 10em;
+  color: rgba(255, 255, 255, 0.5);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+#container .box .content p {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+#container .box .content h3 {
+  margin: 0 0 10px;
+  padding: 0;
+  font-size: 24px;
+  font-weight: 500;
+  color: #fff;
+}
+
+#container .box .content a {
+  position: relative;
+  margin: 20px 0 0;
+  padding: 10px 20px;
+  display: inline-block;
+  padding: 15px 30px;
+  border: 2px solid #fff;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+#container .box .content a::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% - 12px);
+  background: #000;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+  -webkit-transition-delay: 0.5;
+          transition-delay: 0.5;
+}
+
+#container .box .content a:hover::before {
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
+}
+
+#container .box .content a::after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: -2px;
+  height: calc(100% + 4px);
+  width: calc(100% - 12px);
+  background: #000;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+#container .box .content a:hover::after {
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+}
+
+#container .box .content a span {
+  position: relative;
+  z-index: 3;
+}
+
+.footer {
+  background-color: #000;
+  color: #ffffff;
+  text-align: center;
+  font-size: 18px;
+  padding: 15px;
+}
+
+.footer span {
+  font-size: 20px;
+}
+
+.qoute {
+  padding: 10px 30px;
+  margin: 0 0 20px;
+  font-size: 17.5px;
+  border-right: 10px solid #ff1f6b;
+  text-align: right;
+}
+
+.qoute h2 span {
+  color: #ff1f6b;
+}
+
+.qoute footer {
+  display: block;
+  font-size: 80%;
+  line-height: 1.42857143;
+  color: #777;
+}
+
+.about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: left;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+  padding: 150px 0;
+}
+
+.about div {
+  font-family: Montserrat;
+  text-shadow: 0 2px #645258;
+}
+
+.about div p {
+  font-size: 1.5em;
+}
+
+.about div h1 {
+  font-size: 5em;
+  color: #ff1f6b;
+}
+
+.about div h1 span {
+  color: #fff;
+}
+
+.link {
+  color: #000;
+  font-size: 5em;
+  font-family: Poppins;
+}
+
+.sidenav {
+  height: 100%;
+  /* 100% Full-height */
+  width: 0;
+  /* 0 width - change this with JavaScript */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: #111;
+  /* Black*/
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  padding-top: 60px;
+  /* Place content 60px from the top */
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover,
+.offcanvas a:focus {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px !important;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#page {
+  -webkit-transition: margin-left .5s;
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+@font-face {
+  font-family: icon;
+  src: url("../fonts/typeecon.otf");
+}
+
+.social a {
+  text-decoration: none;
+  background-color: #ff1f6b;
+  border-radius: 50%;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.social a:hover {
+  background-color: #fff;
+}
+
+.social a:hover span {
+  color: #ff1f6b;
+}
+
+.social a span {
+  font-family: icon;
+  color: #fff;
+  font-size: 1.5em;
+}
+/*# sourceMappingURL=main.css.map */

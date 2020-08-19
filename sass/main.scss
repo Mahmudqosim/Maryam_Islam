@@ -1,0 +1,537 @@
+@import './resets';
+
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & a {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        color: #fff;
+        font-family: arslan;
+        text-decoration: none;
+        font-size: 2.5em;
+        @include transition-ease;
+
+        &:hover {
+            color: #ff1f6b;
+        }
+    }
+
+    & span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 100%;
+        display: block;
+        transform-origin: bottom-left;
+        visibility: hidden;
+        opacity: 0;
+        @include transition-ease;
+        transform: rotate(-90deg);
+
+        &:nth-child(1) {
+            background: #219dff;
+            transform: rotate(-90deg);
+            transition-delay: 0.6s;
+        }
+
+        &:nth-child(2) {
+            background: #ff1f6b;
+            transform: rotate(-90deg);
+            transition-delay: 0.4s;
+        }
+
+        &:nth-child(3) {
+            background: #fff;
+            transform: rotate(-90deg);
+            transition-delay: 0.2s;
+        }
+    }
+
+    &.active span {
+        transform: rotate(0deg);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &.active .toggle {
+        background: url(../images/close.png);
+        background-repeat: no-repeat;
+        background-position: 5px;
+    }
+
+    &.active ul {
+        visibility: visible;
+        opacity: 1;
+        transition-delay: 0.7s
+    }
+}
+
+.toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: url(../images/toggle.png);
+    background-repeat: no-repeat;
+    background-position: 5px;
+    cursor: pointer;
+    @include transition-ease;
+    z-index: 1000;
+}
+
+ul {
+    position: absolute;
+    z-index: 100;
+    @include transition-ease;
+    opacity: 0;
+    visibility: hidden;
+    transition-delay: 0;
+
+    & li {
+        list-style-type: none;
+        margin: 10px 0;
+
+        & .active {
+            color: #ff1f6b;
+            @include transition-ease;
+
+            &:hover {
+                text-decoration: underline;
+                color: #111;
+            }
+        }
+    }
+}
+
+.row {
+    &.active {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+#main {
+    margin-top: 10%;
+    text-align: center;
+    visibility: visible;
+    opacity: 1;
+    @include transition-ease;
+
+    & h1 {
+        font-size: 7em;
+        color: #fff;
+        font-family: Poppins;
+        // animation: animate 20s infinite;
+
+        & span {
+            color: #ff1f6b;
+        }
+    }
+
+    &.active {
+        visibility: hidden;
+        opacity: 0;
+        @include transition-ease;
+    }
+
+    & a {
+        position: relative;
+        display: inline-block;
+        padding: 15px 30px;
+        border: 2px solid #fff;
+        text-transform: uppercase;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 20px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 6px;
+            left: -2px;
+            width: calc(100% + 4px);
+            height: calc(100% - 12px);
+            background: #000;
+            @include transition-ease;
+            transform: scaleY(1);
+            transition-delay: 0.5;
+        }
+
+        &:hover::before {
+            transform: scaleY(0);
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 6px;
+            top: -2px;
+            height: calc(100% + 4px);
+            width: calc(100% - 12px);
+            background: #000;
+            @include transition-ease;
+            transform: scaleX(1);
+        }
+
+        &:hover::after {
+            transform: scaleX(0);
+        }
+
+        & span {
+            position: relative;
+            z-index: 3;
+        }
+    }
+}
+
+@keyframes animate {
+    0% {
+        color: #ff1f6b;
+    }
+
+    10% {
+        color: #ca114e;
+    }
+
+    20% {
+        color: #1b18e4;
+    }
+
+    30% {
+        color: #f886ac;
+    }
+
+    40% {
+        color: #1f88ff;
+    }
+
+    50% {
+        color: #8b2547;
+    }
+
+    60% {
+        color: #9eff1f;
+    }
+
+    70% {
+        color: #ff1f6b;
+    }
+
+    80% {
+        color: #ff689b;
+    }
+
+    90% {
+        color: #1f80ff;
+    }
+
+    100% {
+        color: #1fffe1;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    #main {
+        margin-top: 15%;
+
+        & h1 {
+            font-size: 4.5em;
+        }
+    }
+}
+
+@media only screen and (max-width: 561px) {
+    #main {
+        margin-top: 15%;
+
+        & h1 {
+            font-size: 3.5em;
+        }
+    }
+}
+
+@media only screen and (max-width: 390px) {
+    #main {
+        margin-top: 15%;
+
+        & h1 {
+            font-size: 2.5em;
+        }
+    }
+}
+
+
+#container {
+    position: relative;
+    visibility: visible;
+    opacity: 1;
+    @include transition-ease;
+
+    &.active {
+        visibility: hidden;
+        opacity: 0;
+        @include transition-ease;
+    }
+
+    & .box {
+        height: 400px;
+        background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        &:hover .content h2 {
+            top: -20px;
+        }
+
+        & .content {
+            position: relative;
+            padding: 20px;
+
+            & h2 {
+                position: absolute;
+                top: -60px;
+                right: 20px;
+                margin: 0;
+                padding: 0;
+                font-size: 10em;
+                color: rgba($color: #fff, $alpha: 0.5);
+                @include transition-ease;
+            }
+
+            & p {
+                margin: 0;
+                padding: 0;
+                font-size: 16px;
+            }
+
+            & h3 {
+                margin: 0 0 10px;
+                padding: 0;
+                font-size: 24px;
+                font-weight: 500;
+                color: #fff;
+            }
+
+            & a {
+                position: relative;
+                margin: 20px 0 0;
+                padding: 10px 20px;
+                display: inline-block;
+                padding: 15px 30px;
+                border: 2px solid #fff;
+                text-transform: uppercase;
+                color: #fff;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 20px;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 6px;
+                    left: -2px;
+                    width: calc(100% + 4px);
+                    height: calc(100% - 12px);
+                    background: #000;
+                    @include transition-ease;
+                    transform: scaleY(1);
+                    transition-delay: 0.5;
+                }
+
+                &:hover::before {
+                    transform: scaleY(0);
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 6px;
+                    top: -2px;
+                    height: calc(100% + 4px);
+                    width: calc(100% - 12px);
+                    background: #000;
+                    @include transition-ease;
+                    transform: scaleX(1);
+                }
+
+                &:hover::after {
+                    transform: scaleX(0);
+                }
+
+                & span {
+                    position: relative;
+                    z-index: 3;
+                }
+            }
+        }
+    }
+}
+
+.footer {
+    background-color: #000;
+    color: #ffffff;
+    text-align: center;
+    font-size: 18px;
+    padding: 15px;
+
+    & span {
+        font-size: 20px;
+    }
+}
+
+.qoute {
+    padding: 10px 30px;
+    margin: 0 0 20px;
+    font-size: 17.5px;
+    border-right: 10px solid #ff1f6b;
+    text-align: right;
+
+    & h2 span {
+        color: #ff1f6b;
+    }
+
+    & footer {
+        display: block;
+        font-size: 80%;
+        line-height: 1.42857143;
+        color: #777;
+    }
+}
+
+.about {
+    display: flex;
+    text-align: left;
+    justify-content: right;
+    padding: 150px 0;
+
+    & div {
+        font-family: Montserrat;
+        text-shadow: 0 2px #645258;
+
+        & p {
+            font-size: 1.5em;
+        }
+
+        & h1 {
+            font-size: 5em;
+            color: #ff1f6b;
+
+            & span {
+                color: #fff;
+            }
+        }
+    }
+}
+
+.link {
+    color: #000;
+    font-size: 5em;
+    font-family: Poppins;
+}
+
+.sidenav {
+    height: 100%;
+    /* 100% Full-height */
+    width: 0;
+    /* 0 width - change this with JavaScript */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111;
+    /* Black*/
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    padding-top: 60px;
+    /* Place content 60px from the top */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover,
+.offcanvas a:focus {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px !important;
+    margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#page {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+@font-face {
+    font-family: icon;
+    src: url('../fonts/typeecon.otf');
+}
+
+.social {
+    & a {
+        text-decoration: none;
+        background-color: #ff1f6b;
+        border-radius: 50%;
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+            background-color: #fff;
+
+            & span {
+                color: #ff1f6b;
+            }
+        }
+
+        & span {
+            font-family: icon;
+            color: #fff;
+            font-size: 1.5em;
+        }
+    }
+}

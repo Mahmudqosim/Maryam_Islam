@@ -1,0 +1,194 @@
+
+@font-face {
+    src: url("../fonts/Poppins-Bold.ttf");
+    font-family: poppins-head;
+}
+
+@font-face {
+    src: url("../fonts/Poppins-Regular.ttf");
+    font-family: poppins-reg;
+}
+@font-face {
+    src: url("../fonts/Poppins-Light.ttf");
+    font-family: poppins-light;
+}
+html, body, ul {
+    margin: 0; padding: 0;
+}
+html {
+    background: url(../images/bg-intro-desktop.png) no-repeat; background-size: cover;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: hsla(0, 100%, 74%, 0.855);position: absolute; top: 0; left: 0; 
+    height: 100%; width: 100%; color: #fff; font-size: 16px; font-family: poppins-reg;
+}
+a {
+    text-decoration: none;
+}
+.attribution { font-size: 13px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); padding: 0px 5px;}
+ /* top navbar */
+ .menu {
+     overflow: hidden;z-index: 1; list-style-type: none; width: 100%;
+ }
+ .menu li {
+     float: right;
+ }
+
+li a:hover {
+    color: hsl(228, 45%, 44%);
+}
+
+a {
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    padding: 15px;
+    position: relative
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+
+div.lines {
+     display: inline-block; padding: 15px; color: hsl(248, 32%, 49%); cursor: pointer;
+ }
+ div.lines {
+    line-height: 40px; display: none; float: right; text-align: right;
+ }
+ div p.line {
+     width: 25px; height: 2px; background-color: hsl(248, 32%, 49%); margin: 4px 0px; 
+ }
+.container, .sub-container, form {
+    display: -webkit-flex; display: flex; justify-content: center; align-items: center;
+}
+.container {
+    width: 80%; margin: auto;height: 100%; flex-direction: column;
+}
+.main-container {
+    height: 100%
+}
+.sub-container {
+    justify-content: space-between; height: 100%
+}
+.flex-item {
+    width: 45%;
+}
+.flex-item div, .flex-item form {
+    width: 100%; margin: auto; border-radius: 5px; box-shadow: 0px 5px 0px rgba(0,0,0,0.2);
+    margin: 20px 0px; padding: 15px;
+}
+.flex-item div {
+    background-color: hsl(248, 32%, 49%);
+}
+.flex-item > p{
+    text-align: left;
+}
+form {
+    background-color: #fff; flex-direction: column; justify-content: space-between;
+}
+form .input, [type=submit] {
+    width: 85%; margin: auto;margin-top: 10px;
+}
+form input {
+    width: 100%; padding: 15px; border: 1px solid hsl(246, 25%, 77%); border-radius: 5px;
+}
+form input:focus {
+    border: 1px solid hsl(246, 25%, 77%);
+}
+p, .tryit {
+    font-size: 14px; text-align: center;
+}
+input::placeholder, form input {
+    font-size: 12px; font-weight: 600; font-family: poppins-reg;
+}
+input[type=submit] {
+    background-color: hsl(154, 59%, 51%); cursor: pointer; color: #fff; text-transform: uppercase;
+    font-weight: 400; letter-spacing: 1px; border: none;
+}
+input[type=submit]:hover {
+    opacity: 0.7;
+}
+form p {
+    color: hsl(246, 25%, 77%); font-size: 10px;
+}
+form p span, .err {
+    color: hsl(0, 100%, 74%); font-weight: 600;
+}
+form p span {
+    cursor: pointer;
+}
+h1 {
+    font-weight: 700; font-family: poppins-head; font-size: 42px;
+}
+.err {
+    font-size: 10px; font-weight: 400px; text-align: right; font-style: italic; padding: 0;
+    font-family: poppins-light; margin: 2px; display: none;
+}
+.error {
+    background: url("../images/icon-error.svg") no-repeat 95% 15px; background-size: 20px 20px;
+    border: 2px solid hsl(0, 100%, 74%);
+}
+.error::placeholder {
+    content: "";
+}
+
+@media screen and (max-width: 700px) {
+    ul.menu {
+        display: none; background-color: #fff; animation: slide 1s ease;
+    }
+    @keyframes slide {
+        from {
+            top: -50px; opacity: 0;
+        }
+        to {
+            top: 0; opacity: 1;
+        }
+    }
+    .menu li {
+        float: none; display: block;
+    }
+    div.lines {
+        display: block; float: right;
+    }
+    li a {
+        color: hsl(248, 32%, 49%); display: block;
+    }
+    li a:hover {
+        background-color: hsl(154, 59%, 51%);
+    }
+    .sub-container {
+        flex-direction: column;
+    }
+    .container, body, .sub-container {
+        height: 100%; position: relative;
+    }
+    .flex-item {
+        width: 90%; margin: auto;
+    }
+    .flex-item h1, .flex-item p {
+        text-align: center;
+    }
+    .flex-item h1 {
+        font-size: 36px;
+    }
+}
